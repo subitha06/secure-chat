@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Secure Chat</title>
+
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/chat.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+<script src="/static/js/script.js"></script>
+<script src="/static/js/fileUpload.js"></script>
+
+</head>
+
+<body>
+
+<div class="chat-wrapper">
+
+<div class="chat-header">
+
+<h2>Secure Chat</h2>
+
+<div>
+
+<span>User: {{user}}</span>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</div>
+
+
+<div id="messages" class="chat-messages">
+
+{% for m in history %}
+
+<div class="message">{{m[0]}}</div>
+
+{% endfor %}
+
+</div>
+
+
+<div class="chat-controls">
+
+<input id="key" placeholder="Secret key">
+
+<input id="message" placeholder="Type message">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+
+<div class="file-controls">
+
+<input type="file" id="fileInput">
+
+<button onclick="uploadFile()">Upload File</button>
+
+<button onclick="downloadHistory()">Download Chat</button>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
